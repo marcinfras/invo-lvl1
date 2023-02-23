@@ -1,8 +1,15 @@
 /// Homepage JavaScript File
 /// Here we import all the JavaScript files we need for our homepage.
 
-import '../styles/home-page.scss'
+import "../styles/home-page.scss";
 
-import { setupCounter } from '../../../global-scripts/scripts/counter/counter.js'
+const paymentBtn = document.querySelector(".card__btn");
 
-setupCounter(document.querySelector('#counter'))
+paymentBtn.addEventListener("click", () => {
+  if (document.querySelector(".card__btn .loader")) return;
+
+  const loader = document.createElement("div");
+  loader.className = "loader";
+  paymentBtn.textContent = "";
+  paymentBtn.appendChild(loader);
+});
